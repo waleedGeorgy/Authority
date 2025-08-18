@@ -7,7 +7,7 @@ interface skeletonCardProps {
 }
 
 const SkeletonCard = ({ rows, hasBigSkeleton, hasButton }: skeletonCardProps) => {
-    let skeletonRows = [];
+    const skeletonRows = [];
     for (let i = 0; i < rows; i++) {
         skeletonRows.push(
             <div className="space-y-2" key={i}>

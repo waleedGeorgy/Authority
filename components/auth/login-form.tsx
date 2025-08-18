@@ -1,5 +1,5 @@
 "use client";
-import { useForm, useFormContext } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { FormError, FormSuccess } from "@/components/form-output";
 import { loginAction } from "@/actions/login-action";
-import { useFormStatus } from "react-dom";
 
 const LoginForm = () => {
     const [error, setError] = useState<string | undefined>("");
@@ -20,7 +19,6 @@ const LoginForm = () => {
     const [show2FA, setShow2FA] = useState(false);
 
     const searchParams = useSearchParams();
-    const context = useFormContext();
 
     const urlError = searchParams.get("error") === "OAuthAccountNotLinked" ? "Email already in use with another provider" : "";
 

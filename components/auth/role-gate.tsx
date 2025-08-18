@@ -1,6 +1,5 @@
 "use client"
 import { UserRole } from "@prisma/client";
-import { useSession } from "next-auth/react";
 import { FormError } from "../form-output";
 import { useCurrentRole } from "@/hooks/use-current-role";
 

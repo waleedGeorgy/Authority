@@ -7,11 +7,6 @@ import { emailVerificationAction } from "@/actions/verification-action";
 import { FormError, FormSuccess } from "../form-output";
 
 const NewVerificationForm = () => {
-    const ERRORS = {
-        NO_TOKEN: "Token does not exist",
-        DEFAULT: "Something went wrong"
-    }
-
     const [error, setError] = useState<string | undefined>();
     const [success, setSuccess] = useState<string | undefined>();
     const [loading, setLoading] = useState<boolean>(false);
@@ -24,7 +19,7 @@ const NewVerificationForm = () => {
         setLoading(true)
 
         if (!tokenId) {
-            setError(ERRORS.NO_TOKEN);
+            setError("Token does not exist");
             setLoading(false);
             return;
         }
@@ -34,10 +29,10 @@ const NewVerificationForm = () => {
             if (verificationResults.success) {
                 setSuccess(verificationResults.success);
             } else {
-                setError(verificationResults.error || ERRORS.DEFAULT);
+                setError(verificationResults.error || "Something went wrong");
             }
         } catch (error) {
-            setError(ERRORS.DEFAULT);
+            setError("Something went wrong");
         } finally {
             setLoading(false);
         }
