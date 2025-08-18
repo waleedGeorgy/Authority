@@ -17,7 +17,7 @@ const Header = ({ label }: headerProps) => {
             <div className="flex flex-row items-center justify-center space-x-2">
                 <FaUserLock size={33} className="mb-0.5" />
                 <h1 className={cn("text-4xl font-semibold", roboto.className)}>
-                    <span className="text-emerald-600">Auth</span>ority
+                    <span className="text-indigo-700">Auth</span>ority
                 </h1>
             </div>
             <p className="text-md">{label}</p>

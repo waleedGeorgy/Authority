@@ -8,13 +8,14 @@ interface cardWrapperProps {
     headerLabel: string,
     backButtonLabel: string,
     backButtonHref: string,
-    showSocial?: boolean
+    showSocial?: boolean,
+    isSubmitting?: boolean,
 }
 
-const CardWrapper = ({ children, headerLabel, backButtonLabel, backButtonHref, showSocial }: cardWrapperProps) => {
+const CardWrapper = ({ children, headerLabel, backButtonLabel, backButtonHref, showSocial, isSubmitting }: cardWrapperProps) => {
     return (
         <Card className="w-md shadow-md">
-            <CardHeader>
+            <CardHeader className="mb-2">
                 <Header label={headerLabel} />
             </CardHeader>
             <CardContent>
@@ -22,11 +23,12 @@ const CardWrapper = ({ children, headerLabel, backButtonLabel, backButtonHref, s
             </CardContent>
             {showSocial && (
                 <CardFooter>
-                    <Social />
+                    <Social isSubmitting={isSubmitting} />
                 </CardFooter>
             )}
             <CardFooter>
                 <BackButton
+                    isSubmitting={isSubmitting}
                     label={backButtonLabel}
                     href={backButtonHref}
                 />

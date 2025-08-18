@@ -16,13 +16,13 @@ export default function Home() {
         <div className="flex flex-row items-center justify-center space-x-2">
           <FaUserLock size={85} />
           <h1 className={cn("text-8xl", roboto.className)}>
-            <span className="text-emerald-600">Auth</span>ority
+            <span className="text-indigo-700">Auth</span>ority
           </h1>
         </div>
         <p className="text-2xl font-light">An authentication service</p>
         <div className="mt-8">
           <LoginButton>
-            <Button variant="secondary" size="lg" className="cursor-pointer text-lg bg-emerald-600 hover:bg-emerald-600/75">Enter</Button>
+            <Button variant="secondary" size="lg" className="cursor-pointer text-lg bg-indigo-700 hover:bg-indigo-800">Enter</Button>
           </LoginButton>
         </div>
       </div>
