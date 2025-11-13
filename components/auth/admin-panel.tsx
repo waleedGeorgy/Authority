@@ -1,10 +1,10 @@
 "use client"
 import { UserLock } from 'lucide-react';
 import { UserRole } from "@prisma/client";
-import { RoleGate } from "./role-gate";
-import { Button } from "../ui/button";
 import { toast } from "sonner"
 import { adminAction } from "@/actions/admin-action";
+import { RoleGate } from "./role-gate";
+import { Button } from "../ui/button";
 import ProtectedRouteCard from "./protected-routes-card";
 
 const AdminPanel = () => {

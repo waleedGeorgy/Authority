@@ -1,8 +1,8 @@
+import { Roboto_Condensed } from "next/font/google";
+import { FaUserLock } from "react-icons/fa";
 import LoginButton from "@/components/auth/login-button";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Roboto_Condensed } from "next/font/google";
-import { FaUserLock } from "react-icons/fa";
 
 const roboto = Roboto_Condensed({
   subsets: ['latin'],

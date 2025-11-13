@@ -72,6 +72,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       token.role = existingUser.role as UserRole;
       token.is2FAEnabled = existingUser.is2FAEnabled as boolean;
       token.isOAuth = !!existingAccount;
+      
       return token;
     },
     async session({ token, session }) {

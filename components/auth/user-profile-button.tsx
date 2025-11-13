@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { CircleUserRound, User, LogOut, House } from 'lucide-react';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -10,7 +11,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import LogoutButton from "./logout-button";
-import { CircleUserRound, User, LogOut, House } from 'lucide-react';
 import { useCurrentUser } from "@/hooks/use-current-user";
 
 const UserProfileButton = () => {

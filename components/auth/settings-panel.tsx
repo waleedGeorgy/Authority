@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { useCurrentUser } from "@/hooks/use-current-user";
 import * as z from "zod";
+import { Settings } from 'lucide-react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { settingsSchema } from "@/schemas";
 import { UserRole } from "@prisma/client";
@@ -14,9 +15,9 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from "../ui/input";
 import { Switch } from "../ui/switch";
 import { Select, SelectItem, SelectTrigger, SelectContent, SelectValue } from "../ui/select";
+import { Separator } from "@/components/ui/separator";
 import { FormError, FormSuccess } from "../form-output";
 import SkeletonCard from "../skeleton-card";
-import { Settings } from 'lucide-react';
 
 const SettingsPanel = () => {
     const sessionUser = useCurrentUser();
@@ -102,6 +103,9 @@ const SettingsPanel = () => {
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(handleSettingsForm)} className="space-y-6">
                     <div className="space-y-4">
+                        <FormDescription className="text-right">
+                            Personal info
+                        </FormDescription>
                         <FormField
                             control={form.control}
                             name="name"
@@ -130,6 +134,10 @@ const SettingsPanel = () => {
                                         </FormItem>
                                     )}
                                 />
+                                <Separator />
+                                <FormDescription className="text-right">
+                                    Update your password
+                                </FormDescription>
                                 <FormField
                                     control={form.control}
                                     name="password"
@@ -156,8 +164,12 @@ const SettingsPanel = () => {
                                         </FormItem>
                                     )}
                                 />
+                                <Separator />
                             </>
                         )}
+                        <FormDescription className="text-right">
+                            Miscellaneous
+                        </FormDescription>
                         <FormField
                             control={form.control}
                             name="role"
@@ -166,13 +178,13 @@ const SettingsPanel = () => {
                                     <FormLabel>Role</FormLabel>
                                     <Select onValueChange={field.onChange} value={field.value} defaultValue={field.value} disabled={form.formState.isSubmitting}>
                                         <FormControl>
-                                            <SelectTrigger className="w-full">
+                                            <SelectTrigger className="w-full cursor-pointer">
                                                 <SelectValue placeholder="Select a role" />
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent>
-                                            <SelectItem value={UserRole.ADMIN}>Admin</SelectItem>
-                                            <SelectItem value={UserRole.USER}>User</SelectItem>
+                                            <SelectItem className="cursor-pointer" value={UserRole.ADMIN}>Admin</SelectItem>
+                                            <SelectItem className="cursor-pointer" value={UserRole.USER}>User</SelectItem>
                                         </SelectContent>
                                     </Select>
                                     <FormMessage />
@@ -190,7 +202,7 @@ const SettingsPanel = () => {
                                             <FormDescription className="text-xs">Enable 2FA on login, for a better account protection.</FormDescription>
                                         </div>
                                         <FormControl>
-                                            <Switch className="data-[state=checked]:bg-emerald-600 data-[state=unchecked]:bg-slate-300" disabled={form.formState.isSubmitting} checked={field.value} onCheckedChange={field.onChange} />
+                                            <Switch className="data-[state=checked]:bg-emerald-600 data-[state=unchecked]:bg-slate-300 cursor-pointer" disabled={form.formState.isSubmitting} checked={field.value} onCheckedChange={field.onChange} />
                                         </FormControl>
                                     </FormItem>
                                 )}
