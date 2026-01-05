@@ -1,14 +1,9 @@
 "use client"
 import { UserRole } from "@prisma/client";
-import { FormError } from "../form-output";
 import { useCurrentRole } from "@/hooks/use-current-role";
+import { FormError } from "../form-output";
 
-interface roleGateProps {
-    children: React.ReactNode,
-    allowedRole: UserRole
-}
-
-export const RoleGate = ({ children, allowedRole }: roleGateProps) => {
+export const RoleGate = ({ children, allowedRole }: { children: React.ReactNode, allowedRole: UserRole }) => {
     const role = useCurrentRole();
 
     if (role !== allowedRole) {

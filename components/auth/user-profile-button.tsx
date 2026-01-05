@@ -10,8 +10,8 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import LogoutButton from "./logout-button";
 import { useCurrentUser } from "@/hooks/use-current-user";
+import LogoutButton from "./logout-button";
 
 const UserProfileButton = () => {
     const user = useCurrentUser();

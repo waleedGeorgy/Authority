@@ -1,5 +1,5 @@
-import CardWrapper from "./card-wrapper";
 import { PiSmileyXEyes } from "react-icons/pi";
+import CardWrapper from "./card-wrapper";
 
 const ErrorCard = () => {
     return (

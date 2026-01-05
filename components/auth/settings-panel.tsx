@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
-import { useCurrentUser } from "@/hooks/use-current-user";
 import * as z from "zod";
 import { Settings } from 'lucide-react';
+import { useCurrentUser } from "@/hooks/use-current-user";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { settingsSchema } from "@/schemas";
 import { UserRole } from "@prisma/client";
@@ -15,9 +15,9 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from "../ui/input";
 import { Switch } from "../ui/switch";
 import { Select, SelectItem, SelectTrigger, SelectContent, SelectValue } from "../ui/select";
-import { Separator } from "@/components/ui/separator";
 import { FormError, FormSuccess } from "../form-output";
 import SkeletonCard from "../skeleton-card";
+import { Separator } from "@/components/ui/separator";
 
 const SettingsPanel = () => {
     const sessionUser = useCurrentUser();

@@ -1,9 +1,9 @@
 "use client";
-import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { SyncLoader } from "react-spinners"
-import CardWrapper from "./card-wrapper";
 import { emailVerificationAction } from "@/actions/verification-action";
+import CardWrapper from "./card-wrapper";
 import { FormError, FormSuccess } from "../form-output";
 
 const NewVerificationForm = () => {
