@@ -1,5 +1,4 @@
 import { NextRequest } from "next/server";
-import { auth } from "./auth";
 import {
   DEFAULT_LOGIN_REDIRECT,
   apiAuthPrefix,
@@ -8,9 +7,6 @@ import {
 } from "@/routes";
 
 export async function middleware(request: NextRequest) {
-  const session = await auth();
-  const isLoggedIn = !!session?.user;
-
   const { nextUrl } = request;
 
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
@@ -20,6 +16,10 @@ export async function middleware(request: NextRequest) {
   if (isApiAuthRoute) {
     return null;
   }
+
+  const { auth } = await import("./auth");
+  const session = await auth();
+  const isLoggedIn = !!session?.user;
 
   if (isAuthRoute) {
     if (isLoggedIn) {
