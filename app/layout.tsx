@@ -33,7 +33,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const isLoggedIn = !!session?.user;
 
   const headersList = await headers();
-  const pathname = headersList.get("x-pathname") || "/";
+  const pathname = headersList.get("x-invoke-path") || "/";
 
   const isApiAuthRoute = pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(pathname);
