@@ -10,7 +10,7 @@ export const UserInfo = async () => {
     return (
         <div className="w-full flex flex-row flex-wrap justify-center gap-x-5 gap-y-3">
             <div className="space-y-2">
-                <Avatar className="h-56 w-56">
+                <Avatar className="size-56">
                     <AvatarImage alt={`Avatar of ${user?.name}`} src={user?.image || ""} />
                     <AvatarFallback>
                         <User size={120} />

@@ -7,7 +7,8 @@ const ErrorCard = () => {
             <div className="flex flex-row justify-center items-center">
                 <PiSmileyXEyes size={90} className="text-destructive" />
             </div>
-        </CardWrapper>);
+        </CardWrapper>
+    );
 }
 
 export default ErrorCard;

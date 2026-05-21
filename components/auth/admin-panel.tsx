@@ -10,21 +10,14 @@ import ProtectedRouteCard from "./protected-routes-card";
 const AdminPanel = () => {
     const onApiRouteClick = async () => {
         const results = await fetch("/api/admin");
-        if (results.ok) {
-            toast.success("Admin API route hit successfully.");
-        } else {
-            toast.error("Failed to hit the admin API route.");
-        }
+        if (results.ok) toast.success("Admin API route hit successfully.");
+        else toast.error("Failed to hit the admin API route.");
     }
 
     const onServerActionClick = async () => {
         const results = await adminAction();
-        if (results.success) {
-            toast.success(results.success);
-        }
-        if (results.error) {
-            toast.error(results.error);
-        }
+        if (results.success) toast.success(results.success);
+        if (results.error) toast.error(results.error);
     }
 
     return (

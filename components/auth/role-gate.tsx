@@ -12,6 +12,7 @@ export const RoleGate = ({ children, allowedRole }: { children: ReactNode, allow
             <FormError message="You are not allowed to view this contents" />
         );
     }
+
     return (
         <>
             {children}

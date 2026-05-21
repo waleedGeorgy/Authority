@@ -29,7 +29,6 @@ declare module "next-auth/jwt" {
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   secret: process.env.AUTH_SECRET,
-
   events: {
     async linkAccount({ user }) {
       await db.user.update({
@@ -38,7 +37,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       });
     },
   },
-
   callbacks: {
     async signIn({ user, account }) {
       if (account?.provider !== "credentials") return true;
@@ -48,7 +46,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
       if (existingUser.is2FAEnabled) {
         const twoFactorConfirmation = await get2FAConfirmationByUserId(
-          existingUser.id
+          existingUser.id,
         );
         if (!twoFactorConfirmation) return false;
 
@@ -72,7 +70,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       token.role = existingUser.role as UserRole;
       token.is2FAEnabled = existingUser.is2FAEnabled as boolean;
       token.isOAuth = !!existingAccount;
-      
+
       return token;
     },
     async session({ token, session }) {
@@ -92,12 +90,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return session;
     },
   },
-
   pages: {
     signIn: "/auth/login",
     error: "/auth/error",
   },
-
   providers: [
     GitHub({
       clientId: process.env.AUTH_GITHUB_ID,
@@ -124,8 +120,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
-
   adapter: PrismaAdapter(db),
-
   session: { strategy: "jwt" },
 });

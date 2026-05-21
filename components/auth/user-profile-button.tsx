@@ -19,7 +19,7 @@ const UserProfileButton = () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className="focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0">
-                <Avatar className="h-10 w-10 cursor-pointer">
+                <Avatar className="size-10 cursor-pointer">
                     <AvatarImage alt={`Avatar of ${user?.name}`} src={user?.image || ""} />
                     <AvatarFallback>
                         <User size={25} />

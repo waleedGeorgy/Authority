@@ -9,7 +9,7 @@ import { FormError, FormSuccess } from "../form-output";
 const NewVerificationForm = () => {
     const [error, setError] = useState<string | undefined>();
     const [success, setSuccess] = useState<string | undefined>();
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState(false);
 
     const tokenId = useSearchParams().get("token");
 
@@ -51,12 +51,13 @@ const NewVerificationForm = () => {
     return (
         <CardWrapper headerLabel="Confirming your email" backButtonLabel="Back to log-in page" backButtonHref="/auth/login">
             <div className="flex items-center justify-center w-full min-h-12">
-                {loading ? (
+                {loading ?
                     <SyncLoader color="white" loading={loading} />
-                ) : <>
-                    <FormSuccess message={success} />
-                    <FormError message={error} />
-                </>
+                    :
+                    <>
+                        <FormSuccess message={success} />
+                        <FormError message={error} />
+                    </>
                 }
             </div>
         </CardWrapper>
