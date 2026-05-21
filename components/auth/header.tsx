@@ -2,16 +2,12 @@ import { Roboto_Condensed } from "next/font/google";
 import { FaUserLock } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 
-interface headerProps {
-    label: string
-}
-
 const roboto = Roboto_Condensed({
     subsets: ['latin'],
     weight: ['600']
 })
 
-const Header = ({ label }: headerProps) => {
+const Header = ({ label }: { label: string }) => {
     return (
         <div className="w-full flex flex-col gap-y-2 items-center justify-center mb-2">
             <div className="flex flex-row items-center justify-center space-x-2">

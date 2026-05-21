@@ -1,11 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
-import { Geist, Geist_Mono } from "next/font/google";
-import { auth } from "@/auth";
-import { Toaster } from "@/components/ui/sonner"
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { Geist, Geist_Mono } from "next/font/google";
+import { ReactNode } from "react";
+import { auth } from "@/auth";
+import { Toaster } from "@/components/ui/sonner"
 import {
   DEFAULT_LOGIN_REDIRECT,
   apiAuthPrefix,
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   description: "A comprehensive authentication toolkit",
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
   const session = await auth();
   const isLoggedIn = !!session?.user;
 

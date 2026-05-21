@@ -44,11 +44,11 @@ const LoginForm = () => {
                 form.reset();
                 setSuccess(result?.success);
             }
-            if (result?.twoFactor) {
-                setShow2FA(true);
-            }
+            if (result?.twoFactor) setShow2FA(true);
         } catch (error) {
-            setSuccess("Redirecting...");
+            if (error instanceof Error && error.message?.includes('NEXT_REDIRECT')) throw error;
+            console.error("An unexpected login error occurred:", error);
+            setError("An unexpected error occurred. Please try again.");
         }
     }
 

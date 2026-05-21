@@ -36,7 +36,7 @@ const UserProfileButton = () => {
                 </DropdownMenuItem>
                 <LogoutButton>
                     <DropdownMenuItem className="cursor-pointer">
-                        <LogOut className="mt-[1px]" />Logout
+                        <LogOut className="mt-px" />Logout
                     </DropdownMenuItem>
                 </LogoutButton>
             </DropdownMenuContent>

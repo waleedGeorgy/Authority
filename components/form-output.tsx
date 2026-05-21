@@ -1,11 +1,7 @@
 import { FaRegCircleXmark } from "react-icons/fa6";
 import { FcOk } from "react-icons/fc";
 
-interface formOutputProps {
-    message?: string
-}
-
-export const FormError = ({ message }: formOutputProps) => {
+export const FormError = ({ message }: { message?: string }) => {
     if (!message) {
         return null;
     }
@@ -17,7 +13,7 @@ export const FormError = ({ message }: formOutputProps) => {
     )
 }
 
-export const FormSuccess = ({ message }: formOutputProps) => {
+export const FormSuccess = ({ message }: { message?: string }) => {
     if (!message) {
         return null;
     }

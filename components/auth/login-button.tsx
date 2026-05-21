@@ -1,7 +1,8 @@
 "use client";
+import { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 
-const LoginButton = ({ children }: { children: React.ReactNode }) => {
+const LoginButton = ({ children }: { children: ReactNode }) => {
     const router = useRouter();
 
     const buttonClicked = () => {

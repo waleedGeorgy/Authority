@@ -94,7 +94,13 @@ const SettingsPanel = () => {
                 setError(results.error);
             }
         } catch (error) {
-            setError("Something went wrong");
+            console.log(error);
+            if (error instanceof Error) {
+                setError(error.message);
+                return;
+            } else {
+                setError("Something went wrong");
+            }
         }
     }
 
@@ -196,7 +202,7 @@ const SettingsPanel = () => {
                                 control={form.control}
                                 name="is2FAEnabled"
                                 render={({ field }) => (
-                                    <FormItem className="flex flex-row justify-between items-center border-1 border-accent rounded-lg p-3">
+                                    <FormItem className="flex flex-row justify-between items-center border border-accent rounded-lg p-3">
                                         <div className="space-y-1">
                                             <FormLabel>2-factor Authentication</FormLabel>
                                             <FormDescription className="text-xs">Enable 2FA on login, for a better account protection.</FormDescription>

@@ -11,7 +11,7 @@ const SkeletonCard = ({ rows, hasBigSkeleton, hasButton }: skeletonCardProps) =>
     for (let i = 0; i < rows; i++) {
         skeletonRows.push(
             <div className="space-y-2" key={i}>
-                <Skeleton className="h-[14px] w-1/5" />
+                <Skeleton className="h-3.5 w-1/5" />
                 <Skeleton className="h-8 w-full" />
             </div>
         );

@@ -1,9 +1,10 @@
+import { ReactNode } from "react";
 import { Card, CardContent, CardHeader } from "../ui/card";
 
 interface protectedRouteCardProps {
-    children: React.ReactNode,
+    children: ReactNode,
     title: string,
-    icon?: React.ReactNode
+    icon?: ReactNode
 }
 
 const ProtectedRouteCard = ({ children, title, icon }: protectedRouteCardProps) => {

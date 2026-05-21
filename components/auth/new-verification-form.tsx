@@ -32,7 +32,13 @@ const NewVerificationForm = () => {
                 setError(verificationResults.error || "Something went wrong");
             }
         } catch (error) {
-            setError("Something went wrong");
+            console.log(error);
+            if (error instanceof Error) {
+                setError(error.message);
+                return;
+            } else {
+                setError("Something went wrong");
+            }
         } finally {
             setLoading(false);
         }
