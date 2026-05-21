@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Roboto_Condensed } from "next/font/google";
 import { ReactNode } from "react";
 import { auth } from "@/auth";
 import { Toaster } from "@/components/ui/sonner"
@@ -17,11 +17,20 @@ import {
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap'
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap'
+});
+
+const roboto = Roboto_Condensed({
+  variable: "--font-roboto",
+  subsets: ['latin'],
+  weight: ['600'],
+  display: 'swap'
 });
 
 export const metadata: Metadata = {
@@ -52,7 +61,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <SessionProvider session={session}>
       <html lang="en" className="dark">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <body className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}>
           {children}
           <Toaster swipeDirections={["right", "left"]} richColors closeButton expand duration={4000} />
         </body>

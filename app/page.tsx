@@ -1,13 +1,6 @@
-import { Roboto_Condensed } from "next/font/google";
 import { FaUserLock } from "react-icons/fa";
 import LoginButton from "@/components/auth/login-button";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-
-const roboto = Roboto_Condensed({
-  subsets: ['latin'],
-  weight: ['600']
-});
 
 export default function Home() {
   return (
@@ -15,7 +8,7 @@ export default function Home() {
       <div className="space-y-2 text-center">
         <div className="flex flex-row items-center justify-center space-x-2">
           <FaUserLock size={85} />
-          <h1 className={cn("text-8xl", roboto.className)}>
+          <h1 className='text-8xl font-roboto'>
             <span className="text-indigo-700">Auth</span>ority
           </h1>
         </div>
